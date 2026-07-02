@@ -1,0 +1,33 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+# Project-specific Jujutsu configuration.
+# Copy this file to the repo-level jj config path (shown by `jj config path --repo`).
+
+[revset-aliases]
+"trunk()" = "main@origin"
+
+[working-copy]
+eol-conversion = "input"
+
+[ui]
+conflict-marker-style = "git"
+default-command = "log"
+
+[snapshot]
+auto-update-stale = true
+
+[visualjj]
+snapshot-workspaces = true
+
+[templates]
+draft_commit_description = '''
+concat(
+  "type(scope): subject\n",
+  "\n",
+  "body\n",
+  "\n",
+  "footer(s)\n",
+  "\n",
+  "# Conventional Commits: https://www.conventionalcommits.org/\n",
+  "# Types: build, chore, ci, docs, feat, fix, perf, refactor, revert, style, test\n",
+)
+'''

@@ -12,7 +12,9 @@
 
   # https://devenv.sh/packages/
   packages = with pkgs; [
+    bun
     devin-cli
+    jujutsu
     secretspec
   ];
 
@@ -50,7 +52,13 @@
   '';
 
   # https://devenv.sh/git-hooks/
-  # git-hooks.hooks.shellcheck.enable = true;
+  git-hooks.hooks.commitlint = {
+    enable = true;
+    name = "commitlint";
+    entry = "./node_modules/.bin/commitlint --edit";
+    language = "system";
+    stages = [ "commit-msg" ];
+  };
 
   # See full reference at https://devenv.sh/reference/options/
 }

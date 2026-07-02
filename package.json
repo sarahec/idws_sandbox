@@ -9,9 +9,15 @@
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"commitlint": "commitlint --from=HEAD~1 --to=HEAD --verbose",
+		"commitlint:jj": "DESC=$(jj log --no-graph -r @ -T 'description'); [ -n \"$DESC\" ] && echo \"$DESC\" | commitlint || echo 'No description to lint'",
+		"commitlint:jj:force": "jj log --no-graph -r @ -T 'description' | commitlint",
+		"commitlint:last": "commitlint --last --verbose"
 	},
 	"devDependencies": {
+		"@commitlint/cli": "^21.0.0",
+		"@commitlint/config-conventional": "^21.0.0",
 		"@sveltejs/adapter-auto": "^7.0.1",
 		"@sveltejs/kit": "^2.63.0",
 		"@sveltejs/vite-plugin-svelte": "^7.1.2",

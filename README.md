@@ -40,3 +40,19 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+
+## Commits
+
+This project uses [Jujutsu](https://jj-vcs.dev/) for version control and follows the [Conventional Commits](https://www.conventionalcommits.org/) standard.
+
+```sh
+# Use jj for commits
+jj describe
+jj bookmark move main --to @-
+jj git push
+
+# Validate the current change description
+bun run commitlint:jj
+```
+
+Use `bun` for package management and enter the `devenv` shell for a consistent environment.

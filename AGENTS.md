@@ -3,6 +3,41 @@
 - **Language**: TypeScript
 - **Package Manager**: bun
 - **Add-ons**: tailwindcss, mcp
+- **VCS**: Jujutsu (jj) with a Git backend
+- **Commit standard**: Conventional Commits
+
+---
+
+## Commit Workflow
+
+This project uses [Jujutsu](https://jj-vcs.dev/) for version control and follows the [Conventional Commits](https://www.conventionalcommits.org/) standard.
+
+### Jujutsu setup
+
+- Use `jj` instead of `git` for everyday operations.
+- The repo-level jj config is at `jj.toml` in the project root. Copy it to the path shown by `jj config path --repo` if you need to re-apply it.
+- Run `jj log` to see history, `jj status` for the working copy, and `jj describe` to edit the current commit message.
+
+### Conventional Commits
+
+Commit messages must follow the format:
+
+```
+<type>(<scope>): <subject>
+
+<body>
+
+<footer(s)>
+```
+
+Allowed types: `build`, `chore`, `ci`, `docs`, `feat`, `fix`, `perf`, `refactor`, `revert`, `style`, `test`.
+
+### Validation
+
+- `jj describe` opens an editor with a Conventional Commits template.
+- `bun run commitlint:jj` lints the current `@` change description.
+- `bun run commitlint` lints the last commit on the Git branch.
+- A `commit-msg` git hook is installed by devenv and runs commitlint for any Git commits.
 
 ---
 
