@@ -11,9 +11,8 @@
   env.GREET = "devenv";
 
   # https://devenv.sh/packages/
-  packages = with pkgs; [ 
-    antigravity-cli
-    secretspec 
+  packages = with pkgs; [
+    secretspec
   ];
 
   # https://devenv.sh/languages/
