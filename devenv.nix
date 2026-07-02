@@ -11,7 +11,10 @@
   env.GREET = "devenv";
 
   # https://devenv.sh/packages/
-  packages = [ pkgs.git ];
+  packages = with pkgs; [ 
+    antigravity-cli
+    secretspec 
+  ];
 
   # https://devenv.sh/languages/
   # languages.rust.enable = true;
