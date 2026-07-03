@@ -12,7 +12,6 @@
 
   # https://devenv.sh/packages/
   packages = with pkgs; [
-    bun
     devin-cli
     jujutsu
     secretspec
@@ -20,7 +19,15 @@
 
   # https://devenv.sh/languages/
   # languages.rust.enable = true;
-  languages.typescript.enable = true;
+  languages = {
+    typescript.enable = true;
+    javascript = {
+      enable = true;
+      bun.enable = true;
+      nodejs.enable = true;
+      npm.enable = true;
+    };
+  };
 
   # https://devenv.sh/processes/
   # processes.dev.exec = "${lib.getExe pkgs.watchexec} -n -- ls -la";
