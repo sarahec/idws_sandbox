@@ -9,6 +9,7 @@
 {
   # https://devenv.sh/basics/
   env.GREET = "devenv";
+  env.DEVENV_TUI = "0";
 
   # https://devenv.sh/packages/
   packages = with pkgs; [
